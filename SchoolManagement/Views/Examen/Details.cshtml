@@ -1,0 +1,58 @@
+﻿@model SchoolManagement.Models.Examen
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Examen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Classe.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classe.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Module.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Module.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeExamen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeExamen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateExam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateExam)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retour", "Index")
+</p>

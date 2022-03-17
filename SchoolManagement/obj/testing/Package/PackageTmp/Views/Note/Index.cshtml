@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SchoolManagement.Models.Note>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>LES NOTES :</h2>
+<br />
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("create","Note")'">Ajouter Note</button>
+</p>
+<br />
+<table class="table table-hover table-responsive table-bordered"id="notes">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Etudiant.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Examen.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteExamen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mention)
+            </th>
+            <th>Modifer</th>
+            <th>Details</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Etudiant.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Examen.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoteExamen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mention)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#notes").DataTable();
+
+        });
+    </script>
+}

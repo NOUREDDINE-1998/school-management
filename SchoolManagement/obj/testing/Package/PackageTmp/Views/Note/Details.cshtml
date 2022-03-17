@@ -1,0 +1,84 @@
+﻿@model SchoolManagement.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Note</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Prenom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Classe.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Classe.Libelle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Examen.Module.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Examen.Module.Libelle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Examen.TypeExamen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Examen.TypeExamen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Examen.DateExam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Examen.DateExam)
+        </dd>
+ 
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteExamen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteExamen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mention)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mention)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retour", "Index")
+</p>

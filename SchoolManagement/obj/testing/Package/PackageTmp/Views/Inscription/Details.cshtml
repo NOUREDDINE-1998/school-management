@@ -1,0 +1,87 @@
+﻿@model SchoolManagement.Models.Inscription
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inscription</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Filliere.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filliere.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnneeScolaire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnneeScolaire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NiveauScolarite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NiveauScolarite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NiveauFormation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NiveauFormation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retour", "Index")
+</p>

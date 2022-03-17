@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SchoolManagement.Models.Etudiant>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>La Liste des Etudiants. </h2>
+<br />
+
+<br />
+<br />
+
+@if (!@Model.Any())
+{
+    <p>il y'a aucun etudiant pour l'instant.'</p>
+}
+else
+{
+    <table class="table table-hover table-responsive table-bordered" id="Etudinats">
+        <thead>
+            <tr>
+                <th>CNIE</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de Naissance</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>Sexe</th>
+                <th>Classe</th>
+
+                <th>Afficher Profile</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var etu in Model)
+            {
+                <tr>
+                    <td>@etu.Id</td>
+                    <td>@etu.Nom</td>
+                    <td>@etu.Prenom</td>
+                    <td>@etu.Date_Nai_Etu.ToShortDateString()</td>
+                    <td>@etu.Adresse</td>
+                    <td>@etu.Email</td>
+                    <td>@etu.Tel</td>
+                    <td>@etu.Sexe</td>
+                    <td>@etu.Classe.Libelle</td>    
+                    <td>@Html.ActionLink("Afficher", "Afficher", "Etudiant", new { id = etu.Id }, null)</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+@section scripts{
+
+
+    <script>
+        $(document).ready(function () {
+            $("td:contains('PAS ENCORE')").css("color", "red");
+        
+            var table = $("#Etudinats").DataTable();
+
+            $("#Etudinats ").on("click", ".js-supprimer", function () {
+                var button = $(this);
+                bootbox.confirm("Vous voulez vraiment supprimer cet etudiant?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            async: true,
+                            url: "/api/Etudiants/" + button.attr("data-etudiant-id"),
+                            type: "DELETE",
+                            success: function () {
+                                table.rows(button.parents("tr")).remove().draw();                            
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+
+                        });
+                    }
+
+                })
+
+            });
+        });
+    </script>
+}
+

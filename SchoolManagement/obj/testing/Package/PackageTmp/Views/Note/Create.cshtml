@@ -1,0 +1,81 @@
+﻿@model SchoolManagement.Models.Note
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Les Notes</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.EtudiantId, "Numero d'Etudiant", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EtudiantId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EtudiantId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExamenId, "Numero d'Examen", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ExamenId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ExamenId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoteExamen, htmlAttributes: new { @class = "control-label col-md-2 note" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoteExamen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoteExamen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mention, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mention, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mention, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ajouter" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Retour", "Index")
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var note = $("#NoteExamen").val();
+            $("#NoteExamen").change(function () {
+                if ($("#NoteExamen").val() < 0) {
+                    alert("la note doit etre superieure a 0");
+                    $("#NoteExamen").val("");
+                }
+
+            })
+            $("#ExamenId").dblclick(function () {
+
+                window.location.href = "https://localhost:44373/Examen";
+
+               
+            })
+        });
+    </script>
+}

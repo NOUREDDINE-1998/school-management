@@ -1,0 +1,24 @@
+﻿@model SchoolManagement.Models.Etudiant
+
+@{
+    ViewBag.Title = "Supprimer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Supprimer</h2>
+
+<h3>voulez vous vraiment supprimer cet etudiant?</h3>
+<div>
+    <h4>Etudiant</h4>
+    <hr />
+   
+
+    @using (Html.BeginForm("Supprimer", "Etudiant")) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

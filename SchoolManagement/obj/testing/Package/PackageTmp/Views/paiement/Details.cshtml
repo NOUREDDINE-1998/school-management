@@ -1,0 +1,67 @@
+﻿@model SchoolManagement.Models.paiement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>paiement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiant.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiant.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeReglement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeReglement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypePaiement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypePaiement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DureeEnMois)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DureeEnMois)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Montant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Montant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePaiment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePaiment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Retour  ", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotrn">
+    <img src=@Url.Content("~/ImagesJavascript/ecole1.jpg") id="img" alt="ecole" style="max-height:600px; width: 100%" />
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var etudiants = [{
+            id: 1,
+            img: "~/ImagesJavascript/ECOLE.jpg"
+        }, {
+            id: 2,
+            img: "~/ImagesJavascript/ecole1.jpg"
+
+        }, {
+            id: 3,
+            img: "~/ImagesJavascript/ECOLE2.jpg"
+
+        }, {
+            id: 4,
+            img: "~/ImagesJavascript/ecole3.jpg"
+
+        }, {
+            id: 5,
+            img: "~/ImagesJavascript/ECOLE4.jpg"
+
+        }
+        ];
+
+       /* var slideIndex = 0;
+      //  showSlides();
+        // initialiser premier valeur a image source
+        var img = document.getElementById("img");
+        var element = etudiants[slideIndex];
+        document.addEventListener("load", function () {
+            img.setAttribute("src", element.img);
+        });
+        */
+        $(function () {
+            $("#btn").click(function () {
+                toastr.success("done");
+                $("#img").attr("src", "~/ImagesJavascript/ECOLE2.jpg");
+            });
+        });
+
+       
+          //  setTimeout(showSlides, 2000); // Change image every 2 seconds
+        
+
+    </script>
+}

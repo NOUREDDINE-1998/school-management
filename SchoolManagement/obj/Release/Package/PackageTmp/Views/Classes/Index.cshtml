@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SchoolManagement.Models.Classe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>La liste des Classes</h2>
+
+<p>
+
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create","Classes")'">ajouter Classe</button>
+</p>
+<br />
+<table class="table table-hover table-responsive table-bordered " id="classes">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Nom de la Classe</th>
+            <th>Modifier</th>
+            <th>Details</th>
+            <th>Supprimer</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Libelle
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    </table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#classes").DataTable();
+
+        });
+    </script>
+}

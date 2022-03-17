@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SchoolManagement.Models.Module>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>La liste des Modules</h2>
+<br />
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("create","Module")'">Ajouter Module</button>
+</p>
+<br />
+<table class="table table-hover table-responsive table-bordered" id="modules">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Libelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coefficient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalHeures)
+            </th>
+            <th>Modifier</th>
+            <th>Details</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Libelle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coefficient)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalHeures)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#modules").DataTable();
+
+        });
+    </script>
+}

@@ -1,0 +1,49 @@
+﻿@model SchoolManagement.Models.Module
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Vous voulez vraiment supprimer ce Module ?</h3>
+<div>
+    <h4>Module</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coefficient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coefficient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalHeures)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalHeures)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index")
+        </div>
+    }
+</div>
